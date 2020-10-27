@@ -129,12 +129,13 @@ client
           .then((response) => {
             return ensureDir(join(options.outputDir, options.format))
               .then(() => {
-                console.log('paki 33 -4', `${component.name}.${options.format}`, response.body)
+                const names = component.name.split('/')
+                const componentName = names[names.length - 1].replace(' ', '')
                 return writeFile(
                   join(
                     options.outputDir,
                     options.format,
-                    `${component.name}.${options.format}`
+                    `${componentName}.${options.format}`
                   ),
                   response.body,
                   options.format === 'svg' ? 'utf8' : 'binary'
