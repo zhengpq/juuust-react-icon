@@ -77,7 +77,6 @@ client
   })
   .then((components) => {
     console.log('Getting export urls')
-    console.log('paki 11', components)
     return client
       .fileImages(fileId, {
         format: options.format,
