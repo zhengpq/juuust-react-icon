@@ -108,7 +108,7 @@ client
       })
   })
   .then((components) => {
-    console.log('paki 33')
+    console.log('paki 33', components)
     const contentTypes = {
       svg: 'image/svg+xml',
       png: 'image/png',
@@ -116,6 +116,7 @@ client
     }
     return queueTasks(
       Object.values(components).map((component) => () => {
+        console.log('paki 33 -1 ', component)
         return got
           .get(component.image, {
             headers: {
@@ -124,6 +125,7 @@ client
             encoding: options.format === 'svg' ? 'utf8' : null,
           })
           .then((response) => {
+            console.log('paki 33 -2', response)
             return ensureDir(join(options.outputDir, options.format)).then(() =>
               writeFile(
                 join(
@@ -136,7 +138,7 @@ client
               )
             )
           }).catch((err) => {
-            console.log('paki 33', err)
+            console.log('paki 33 -3', err)
           })
       })
     )
