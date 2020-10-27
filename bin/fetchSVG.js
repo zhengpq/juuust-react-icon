@@ -74,6 +74,7 @@ client.file(fileId)
   })
   .then(components => {
     console.log('Getting export urls')
+    console.log('paki', components)
     return client.fileImages(
       fileId,
       {
