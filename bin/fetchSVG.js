@@ -12,12 +12,12 @@ const options = {
   scale: '1'
 }
 
-for(const arg of process.argv.slice(2)) {
-  const [param, value] = arg.split('=')
-  if(options[param]) {
-    options[param] = value
-  }
-}
+// for(const arg of process.argv.slice(2)) {
+//   const [param, value] = arg.split('=')
+//   if(options[param]) {
+//     options[param] = value
+//   }
+// }
 
 if(!FIGMA_TOKEN) {
   throw Error('Cannot find FIGMA_TOKEN in process!')
