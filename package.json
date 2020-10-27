@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/leadream/juuust-react-icon#readme",
   "scripts": {
-    "fetch": "node bin/fetchSVG.js",
+    "fetch": "sudo rm -rf src/svg && node bin/fetchSVG.js",
     "generate": "sudo rm -rf src/icons && node bin/build.js",
     "build:bundle": "sudo rm -rf dist && node_modules/.bin/rollup --c ./build/rollup.config.bundle.js",
     "dev": "rollup -w -c ./build/rollup.config.dev.js",
