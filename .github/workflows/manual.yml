@@ -30,6 +30,8 @@ jobs:
         FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
         FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
     - run: git add -A
+    - run: git config --global user.email "1455760759@qq.com"
+    - run: git config --global user.name "zhengpq"
     - run: git commit -m ''
     - run: git push
     - run: yarn generate
