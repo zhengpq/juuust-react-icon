@@ -89,7 +89,8 @@ client
           components[id].image = data.images[id]
         }
         return components
-      }).catch((err) => {
+      })
+      .catch((err) => {
         console.log('paki 11', err)
       })
   })
@@ -103,7 +104,8 @@ client
           'utf8'
         )
       )
-      .then(() => components).catch((err) => {
+      .then(() => components)
+      .catch((err) => {
         console.log('paki 22', err)
       })
   })
@@ -125,19 +127,24 @@ client
             encoding: options.format === 'svg' ? 'utf8' : null,
           })
           .then((response) => {
-            console.log('paki 33 -2', response)
-            return ensureDir(join(options.outputDir, options.format)).then(() =>
-              writeFile(
-                join(
-                  options.outputDir,
-                  options.format,
-                  `${component.name}.${options.format}`
-                ),
-                response.body,
-                options.format === 'svg' ? 'utf8' : 'binary'
-              )
-            )
-          }).catch((err) => {
+            return ensureDir(join(options.outputDir, options.format))
+              .then(() => {
+                console.log('paki 33 -4', `${component.name}.${options.format}`, response.body)
+                return writeFile(
+                  join(
+                    options.outputDir,
+                    options.format,
+                    `${component.name}.${options.format}`
+                  ),
+                  response.body,
+                  options.format === 'svg' ? 'utf8' : 'binary'
+                )
+              })
+              .catch((err) => {
+                console.log('paki 33 -5', err)
+              })
+          })
+          .catch((err) => {
             console.log('paki 33 -3', err)
           })
       })
