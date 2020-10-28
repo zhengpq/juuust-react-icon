@@ -40,12 +40,15 @@ jobs:
 #       with:
 #         github_token: ${{ secrets.GH_TOKEN }}
 #         branch: ${{ github.ref }}
-    - run: ls
-    - run: cd ../
-    - run: ls
-    - run: git clone https://github.com/zhengpq/test.git
-    - run: cd test
-    - run: ls
+    - name: Pushes to another repository
+      uses: cpina/github-action-push-to-another-repository@master
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
+      with:
+        source-directory: 'src/svg'
+        destination-github-username: 'zhengpq'
+        destination-repository-name: 'test'
+        user-email: 1455760759@qq.com
 #     - run: yarn generate
 #     - run: yarn build:bundle
 #     - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
