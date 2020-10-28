@@ -49,6 +49,7 @@ jobs:
         destination-github-username: 'zhengpq'
         destination-repository-name: 'test'
         user-email: 1455760759@qq.com
+        target-branch: 'main'
 #     - run: yarn generate
 #     - run: yarn build:bundle
 #     - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
